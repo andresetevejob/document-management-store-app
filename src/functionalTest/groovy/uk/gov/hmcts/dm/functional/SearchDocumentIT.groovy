@@ -20,8 +20,8 @@ class SearchDocumentIT extends BaseIT {
     @Test
     void "S1 As authenticated user I can search for document using specific metadata property"() {
 
-        def caseNo1 = RandomStringUtils.randomAlphabetic(50)
-        def caseNo2 = RandomStringUtils.randomAlphabetic(50)
+        def caseNo1 = 1111111111111111
+        def caseNo2 = 2222222222222222
 
         createDocument CITIZEN, null, null, null, [case: caseNo1]
         createDocument CITIZEN, null, null, null, [case: caseNo1]
