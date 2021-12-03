@@ -65,9 +65,11 @@ class SearchDocumentIT extends BaseIT {
 
     @Test
     void "S4 As authenticated user I receive no records when searched item could not be found"() {
+
+        def caseNoS4 = RandomStringUtils.randomAlphabetic(50)
         givenRequest(CITIZEN)
             .contentType(ContentType.JSON)
-            .body(JsonOutput.toJson([name: 'case', value: '123']))
+            .body(JsonOutput.toJson([name: 'case', value: caseNoS4]))
             .expect().log().all()
             .statusCode(200)
             .body("page.totalElements", is(0))
@@ -76,7 +78,7 @@ class SearchDocumentIT extends BaseIT {
     }
 
     @Test
-    void "S4 As a authenticated user I can search using special characters"() {
+    void "S5 As a authenticated user I can search using special characters"() {
         givenRequest(CITIZEN)
             .contentType(ContentType.JSON)
             .body(JsonOutput.toJson([name: 'case', value: '!"£$%%^&*()<>:@~[];\'#,./ÄÖÜẞ▒¶§■¾±≡µÞÌ█ð╬¤╠┼▓®¿ØÆ']))
