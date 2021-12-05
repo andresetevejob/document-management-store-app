@@ -318,7 +318,7 @@ pitest {
     enableDefaultIncrementalAnalysis = true
     historyInputLocation = 'build/reports/pitest/fastermutationtesting'
     historyOutputLocation ='build/reports/pitest/fastermutationtestingoutput'
-    threads = 15
+    threads = 20
     testSourceSets = [sourceSets.test]
     mainSourceSets = [sourceSets.main]
     fileExtensionsToFilter.addAll('xml','json')
