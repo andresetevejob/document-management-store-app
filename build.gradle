@@ -314,7 +314,7 @@ pitest {
         'uk.gov.hmcts.dm.DmApp.java',
         'uk.gov.hmcts.dm.service.util.*'
     ]
-
+    excludedMethods = ['equals', 'hashcode']
     enableDefaultIncrementalAnalysis = true
     historyInputLocation = 'build/reports/pitest/fastermutationtesting'
     historyOutputLocation ='build/reports/pitest/fastermutationtestingoutput'
@@ -370,6 +370,7 @@ test {
 }
 
 task functional(type: Test, description: 'Runs the functional tests.', group: 'Verification') {
+    useJUnitPlatform()
     doFirst(){
         printf("Available processors:::::::::: " + Runtime.runtime.availableProcessors().intdiv(2).toString())
     }
@@ -383,7 +384,7 @@ task functional(type: Test, description: 'Runs the functional tests.', group: 'V
     setTestClassesDirs(sourceSets.functionalTest.output.classesDirs)
     setClasspath(sourceSets.functionalTest.runtimeClasspath)
 
-    failFast = true
+//    failFast = true
 
     environment("APPINSIGHTS_INSTRUMENTATIONKEY", "test-key")
 
