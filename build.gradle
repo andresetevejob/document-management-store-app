@@ -321,7 +321,6 @@ pitest {
     threads = 25
     testSourceSets = [sourceSets.test]
     mainSourceSets = [sourceSets.main]
-    fileExtensionsToFilter.addAll('xml','json')
     outputFormats = ['XML', 'HTML','CSV']
     mutationThreshold = 5
     coverageThreshold = 0
